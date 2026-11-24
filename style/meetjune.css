@@ -141,3 +141,9 @@ dog-spotlight button:focus-visible {
 #toggle-view[hidden]{
     display: none;
 }
+
+noscript p {
+    font-weight: bold;
+    text-align: center;
+    padding: 1rem;
+}
