@@ -125,11 +125,16 @@
                 to meet dogs looking for their forever homes.
             </p>
 
-            <button type="button" id="toggle-view">
-                toggle compact view
+            <button type="button" id="toggle-view" role="switch" aria-checked="false" hidden>
+                <span class="slider" aria-hidden="true"></span>
+                compact view
             </button>
 
             <dog-spotlight></dog-spotlight>
+
+            <noscript>
+                <p>the dog spotlight is unavailable without javascript, but you can still visit the adoption links above to find your next best friend!</p>
+            </noscript>
         </section>
     </main>
 

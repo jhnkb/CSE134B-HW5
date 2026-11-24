@@ -14,9 +14,11 @@ class DogSpotlight extends HTMLElement {
             // if image exists
             if (image) {
                 if (this.hasAttribute("compact")){
-                    image.style.maxWidth = "200px";
+                    image.style.width = "200px";
+                    image.style.height = "200px";
                 } else {
-                    image.style.maxWidth = "400px"
+                    image.style.width = "400px";
+                    image.style.height = "400px";
                 }
             }
         }
@@ -43,7 +45,8 @@ class DogSpotlight extends HTMLElement {
         const image = document.createElement("img");
         image.src = dogs[0].image;
         image.alt = dogs[0].breed;
-        image.style.maxWidth = this.hasAttribute("compact") ? "200px" : "400px";
+        image.style.width = this.hasAttribute("compact") ? "200px" : "400px";
+        image.style.height = this.hasAttribute("compact") ? "200px" : "400px";
 
         const breed = document.createElement("p");
         breed.textContent = dogs[0].breed;
@@ -52,8 +55,13 @@ class DogSpotlight extends HTMLElement {
         button.type = "button";
         button.textContent = "Surprise me with a dog";
 
+        //creates a par element
         const status = document.createElement("p");
+        //set initial text, adds text to par
         status.textContent = "Discover a new dog!";
+        //adds an accessibility attribute to par
+        //role = "status", tells assistive tech (like screen readers)
+        //that this element contains status info that may change
         status.setAttribute("role", "status");
 
         this.appendChild(heading);
@@ -111,6 +119,39 @@ customElements.define("dog-spotlight", DogSpotlight);
 const toggleButton = document.querySelector('#toggle-view');
 const spotlight = document.querySelector("dog-spotlight");
 
+toggleButton.hidden = false;
+
+function applyMode(mode) {
+
+    let isCompact;
+
+    if (mode === "compact") {
+        isCompact = true;
+    } else {
+        isCompact = false;
+    }
+
+    spotlight.toggleAttribute("compact", isCompact);
+    toggleButton.setAttribute("aria-checked", isCompact);
+}
+
+try {
+    const savedMode = localStorage.getItem("hw5-dog-spotlight-mode");
+
+    applyMode(savedMode);
+} catch (error) {
+    applyMode("expanded");
+    console.warn("Could not retrieve view preference.");
+}
+
 toggleButton.addEventListener("click", () => {
-    spotlight.toggleAttribute("compact");
+    const mode = spotlight.hasAttribute("compact") ? "expanded" : "compact";
+
+    applyMode(mode);
+
+    try {
+        localStorage.setItem("hw5-dog-spotlight-mode", mode);
+    } catch (error) {
+        console.warn("Could not save view preference.");
+    }
 });
