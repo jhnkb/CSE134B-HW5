@@ -1,0 +1,54 @@
+---
+permalink: index.html
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John's Webpage - Homepage</title>
+    <link rel="icon" type="image/png" href="images/logo.svg">
+    <link rel="stylesheet" href="style/variables.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/home.css">
+
+    <script src="theme.js" defer></script>
+</head>
+
+<body>
+    <button type="button" id="theme-toggle" hidden>
+    ☾ Dark mode
+    </button>
+    <main>
+        <img class="logo" src="images/logo.svg" alt="Cartoon illustration of June, my dog">
+        <h1>hi, i'm john</h1>
+        <p id="description">cs student &bull; bioinformatics &bull; dog enthusiast </p>
+        <nav id="homepage-navigation" aria-label="Homepage Navigation">
+            <ul>
+                <li><a href="about.html">about</a></li>
+                <li><a href="projects.html">projects</a></li>
+                <li><a href="journal.html">journal</a></li>
+                <li><a href="resume.html">resume</a></li>
+                <li><a href="form-no-js.html">contact (no js)</a></li>
+                <li><a href="form-with-js.html">contact (with js)</a></li>
+                <li class="meetjune"><a href="meetjune.html">meet june!</a></li>
+            </ul>
+        </nav>
+
+        <hello-world></hello-world>
+    </main>
+
+    {% include "footer.njk" %}
+
+    <script>
+        class HelloWorld extends HTMLElement {
+            connectedCallback() {
+                console.log("Hello World!");
+            }
+        }
+
+        customElements.define("hello-world", HelloWorld);
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+.project-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+.project-filters button {
+    background-color: var(--color-secondary);
+    border-color: var(--color-border);
+    border-radius: var(--radius-small);
+    width: 200px;
+    height: 30px;
+    color: var(--color-text);
+}
+
+.project-filters button:hover {
+    background-color: var(--color-hover);
+    color: white;
+    cursor: pointer;
+}
+
+project-card {
+    display: block;
+    border: 1px solid var(--color-border);
+    padding: 20px;
+    margin: 15px;
+}
+
+/* styles images directly nested inside figures within project cards */
+project-card > article > figure > img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+project-card:hover {
+    transform: scale(1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}

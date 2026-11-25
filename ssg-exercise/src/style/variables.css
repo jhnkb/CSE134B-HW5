@@ -1,0 +1,37 @@
+:root {
+    /* Colors */
+    --color-primary: #D97736;
+    --color-secondary: #F5E6D3;
+    --color-text: #333333;
+    --color-background: #FFF9F0;
+    --color-border: #D6C8BA;
+    --color-hover: #A5B59A;
+
+    /* Typography */
+    --font-primary: "Outfit", sans-serif;
+
+    /* Font Sizes */
+    --font-small: 0.875rem;
+    --font-medium: 1rem;
+    --font-large: 1.5rem;
+    --font-heading: 2.5rem;
+
+    /* Spacing */
+    --spacing-small: 0.5rem;
+    --spacing-medium: 1rem;
+    --spacing-large: 2rem;
+
+    /* Border Radius */
+    --radius-small: 0.5rem;
+    --radius-large: 1rem;
+}
+
+    /* Dark Theme */
+    :root[data-theme="dark"] {
+    --color-primary: #E99558;
+    --color-secondary: #38312D;
+    --color-text: #F5EDE5;
+    --color-background: #211E1B;
+    --color-border: #62564D;
+    --color-hover: #647A5D;
+}
