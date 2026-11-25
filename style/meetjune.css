@@ -58,7 +58,9 @@ dog-spotlight:empty {
 dog-spotlight img {
     display: block;
     width: 400px;
-    height: 400px;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
     margin: 1rem auto;
     object-fit: cover;
     border-radius: 50%;

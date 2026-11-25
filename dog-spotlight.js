@@ -15,10 +15,8 @@ class DogSpotlight extends HTMLElement {
             if (image) {
                 if (this.hasAttribute("compact")){
                     image.style.width = "200px";
-                    image.style.height = "200px";
                 } else {
                     image.style.width = "400px";
-                    image.style.height = "400px";
                 }
             }
         }
@@ -46,7 +44,6 @@ class DogSpotlight extends HTMLElement {
         image.src = dogs[0].image;
         image.alt = dogs[0].breed;
         image.style.width = this.hasAttribute("compact") ? "200px" : "400px";
-        image.style.height = this.hasAttribute("compact") ? "200px" : "400px";
 
         const breed = document.createElement("p");
         breed.textContent = dogs[0].breed;
